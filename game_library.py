@@ -48,10 +48,17 @@ def library(library,root_json: str):
     except (KeyError, AttributeError) as e:
         print(str(e)+'. Game library likely not found.')
 
+library(GOG_LIBRARY, 'games')
+library(AMAZON_LIBRARY, 'library')
+library(EPIC_LIBRARY, 'library')
+
 def get_titles():
     titles = {}
+    GOG_LIBRARY=open_library(os.path.join(env('PATHO'), env('GOG_LIBRARY')))
     gog_titles = library(GOG_LIBRARY, 'games')
+    EPIC_LIBRARY=open_library(os.path.join(env('PATHO'), env('EPIC_LIBRARY')))
     epic_titles = library(EPIC_LIBRARY, 'library')
+    AMAZON_LIBRARY=open_library(os.path.join(env('PATHO'), env('AMAZON_LIBRARY')))
     amazon_titles = library(AMAZON_LIBRARY, 'library')
     titles.update(gog_titles)
     titles.update(epic_titles)

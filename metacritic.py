@@ -1,9 +1,8 @@
 import json
 import re
-import sys
 import requests
 from bs4 import BeautifulSoup
-from game_library import get_titles, get_title_names
+from game_library import get_titles
 import os
 from dotenv import load_dotenv
 from typing import Dict, Any, List, Tuple, Optional
